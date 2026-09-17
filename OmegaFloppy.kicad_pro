@@ -253,7 +253,7 @@
         "min_microvia_drill": 0.1,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
-        "min_text_height": 0.8,
+        "min_text_height": 0.762,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.3,
         "min_track_width": 0.1016,
@@ -383,7 +383,38 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      {
+        "comment": "Custom symbol",
+        "marker": {
+          "error_type": "ERCET_FOOTPRINT_LINK_ISSUES",
+          "items": [
+            {
+              "value": "fc643e8c-796f-41f2-84d1-ea5fd9daf48a"
+            }
+          ],
+          "position": {
+            "x_nm": "62230000",
+            "y_nm": "132080000"
+          }
+        }
+      },
+      {
+        "comment": "Custom symbol",
+        "marker": {
+          "error_type": "ERCET_FOOTPRINT_LINK_ISSUES",
+          "items": [
+            {
+              "value": "d1060820-79c1-4a0b-a574-545886e88baf"
+            }
+          ],
+          "position": {
+            "x_nm": "307340000",
+            "y_nm": "135890000"
+          }
+        }
+      }
+    ],
     "meta": {
       "version": 1
     },
@@ -902,17 +933,113 @@
         "name": "NextPCB",
         "sort_asc": true,
         "sort_field": "Reference"
+      },
+      {
+        "exclude_dnp": false,
+        "fields_ordered": [
+          {
+            "group_by": true,
+            "label": "Designator",
+            "name": "Reference",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "Quantity",
+            "name": "${QUANTITY}",
+            "show": true
+          },
+          {
+            "group_by": true,
+            "label": "Manufacturer Part Number",
+            "name": "MPN",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "Manufacturer",
+            "name": "Manufacturer",
+            "show": true
+          },
+          {
+            "group_by": true,
+            "label": "Footprint",
+            "name": "Footprint",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "Description",
+            "name": "Description",
+            "show": true
+          },
+          {
+            "group_by": true,
+            "label": "Value",
+            "name": "Value",
+            "show": false
+          },
+          {
+            "group_by": true,
+            "label": "Procurement Type",
+            "name": "${DNP}",
+            "show": true
+          },
+          {
+            "group_by": true,
+            "label": "Exclude from BOM",
+            "name": "${EXCLUDE_FROM_BOM}",
+            "show": false
+          },
+          {
+            "group_by": true,
+            "label": "Exclude from Board",
+            "name": "${EXCLUDE_FROM_BOARD}",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Datasheet",
+            "name": "Datasheet",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "#",
+            "name": "${ITEM_NUMBER}",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Customer Note",
+            "name": "Customer Note",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "LCSC",
+            "name": "LCSC",
+            "show": false
+          },
+          {
+            "group_by": false,
+            "label": "Sim.Pins",
+            "name": "Sim.Pins",
+            "show": false
+          }
+        ],
+        "filter_scope": "reference",
+        "filter_string": "",
+        "group_symbols": true,
+        "include_excluded_from_bom": true,
+        "name": "PCBWay",
+        "sort_asc": true,
+        "sort_field": "Reference"
       }
     ],
     "bom_settings": {
       "exclude_dnp": false,
       "fields_ordered": [
-        {
-          "group_by": true,
-          "label": "Comment",
-          "name": "Value",
-          "show": true
-        },
         {
           "group_by": true,
           "label": "Designator",
@@ -921,13 +1048,13 @@
         },
         {
           "group_by": false,
-          "label": "Qty",
+          "label": "Quantity",
           "name": "${QUANTITY}",
-          "show": false
+          "show": true
         },
         {
           "group_by": true,
-          "label": "MPN",
+          "label": "Manufacturer Part Number",
           "name": "MPN",
           "show": true
         },
@@ -935,7 +1062,7 @@
           "group_by": false,
           "label": "Manufacturer",
           "name": "Manufacturer",
-          "show": false
+          "show": true
         },
         {
           "group_by": true,
@@ -947,13 +1074,19 @@
           "group_by": false,
           "label": "Description",
           "name": "Description",
+          "show": true
+        },
+        {
+          "group_by": true,
+          "label": "Value",
+          "name": "Value",
           "show": false
         },
         {
           "group_by": true,
-          "label": "DNP",
+          "label": "Procurement Type",
           "name": "${DNP}",
-          "show": false
+          "show": true
         },
         {
           "group_by": true,
@@ -983,13 +1116,13 @@
           "group_by": false,
           "label": "Customer Note",
           "name": "Customer Note",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
           "label": "LCSC",
           "name": "LCSC",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
@@ -1004,7 +1137,7 @@
       "include_excluded_from_bom": true,
       "name": "",
       "sort_asc": true,
-      "sort_field": "Value"
+      "sort_field": "Reference"
     },
     "bus_aliases": {
       "I2C": [
@@ -1097,7 +1230,7 @@
         "uuid": "46ec7b9e-7ce4-471b-b2a3-117ade628de1"
       }
     ],
-    "used_designators": "#FLG1-2,#PWR1-21,C1-4,D1,J1-3,P1,R1-6,U1-3,Y1",
+    "used_designators": "#FLG1-2,#PWR1-21,C1-4,J1-2,P1,R1-6,U1-3,Y1",
     "variants": []
   },
   "sheets": [
